@@ -1,0 +1,30 @@
+name: Daily Update
+
+on:
+  schedule:
+    # Runs at 00:00 UTC daily
+    - cron: '0 0 * * *'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Run daily update script
+      run: |
+        npm install
+        node dailyUpdate.js
+
+    - name: Push changes
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git push
