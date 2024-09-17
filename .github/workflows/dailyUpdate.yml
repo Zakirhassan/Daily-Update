@@ -25,6 +25,9 @@ jobs:
 
     - name: Push changes
       run: |
-        git config --local user.name "Zakirhassan"
-        git config --local user.email "zakirhassan114@gmail.com"
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout main  # Ensure you're on the correct branch
+        git add README.md
+        git commit -m "Daily update with new quote"
         git push
