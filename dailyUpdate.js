@@ -1,6 +1,10 @@
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 
+// Set Git identity
+execSync('git config --local user.name "github-actions[bot]"');
+execSync('git config --local user.email "github-actions[bot]@users.noreply.github.com"');
+
 // File path of the README file
 const filePath = 'README.md';
 
