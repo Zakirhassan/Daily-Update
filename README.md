@@ -3,7 +3,6 @@
 Daily update: 17/9/2024
 
 **Daily Update - 17/9/2024:**
-> "undefined - undefined"
 
 
 Daily update: 17/9/2024Bursting with imagery, motion, interaction and distraction though it is, today’s World Wide Web is still primarily a conduit for textual information. In HTML5, the focus on writing and authorship is more pronounced than ever. It’s evident in the very way that new elements such as article and aside are named. HTML5 asks us to treat the HTML document more as… well, a document.
