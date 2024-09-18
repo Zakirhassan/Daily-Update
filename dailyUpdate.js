@@ -7,7 +7,7 @@ execSync('git config --local user.email "github-actions[bot]@users.noreply.githu
 
 // Get the current date and format it to append to the filename
 const date = new Date();
-const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+const formattedDate = new Date();
 
 // Define the new file path with the date appended to the filename
 const filePath = `DailyUpdate_${formattedDate}.txt`;
