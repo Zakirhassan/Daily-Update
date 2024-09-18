@@ -5,16 +5,14 @@ const execSync = require('child_process').execSync;
 execSync('git config --local user.name "github-actions[bot]"');
 execSync('git config --local user.email "github-actions[bot]@users.noreply.github.com"');
 
-// File path of the README file
-const filePath = 'README.md';
-
-// Get the current date to append it
+// Get the current date and format it to append to the filename
 const date = new Date();
+const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 
-// Read the current README file
-let readmeContent = fs.readFileSync(filePath, 'utf-8');
+// Define the new file path with the date appended to the filename
+const filePath = `DailyUpdate_${formattedDate}.md`;
 
-// Add new content to the file
+// Create the content for the new file
 const newContent = `Bursting with imagery, motion, interaction and distraction though it is, today’s World Wide Web is still primarily a conduit for textual information. In HTML5, the focus on writing and authorship is more pronounced than ever. It’s evident in the very way that new elements such as article and aside are named. HTML5 asks us to treat the HTML document more as… well, a document.
 
 It’s not just the specifications that are changing, either. Much has been made of permutations to Google’s algorithms, which are beginning to favor better written, more authoritative content (and making work for the growing content strategy industry). Google’s bots are now charged with asking questions like, “Was the article edited well, or does it appear sloppy or hastily produced?” and “Does this article provide a complete or comprehensive description of the topic?,” the sorts of questions one might expect to be posed by an earnest college professor.
@@ -61,13 +59,12 @@ Whatever your page’s ideal maximum width, it is likely much narrower than what
 
 Leading and Vertical Rhythm #
 
-\n\nDaily update: **${date}** \n\n`;
-readmeContent += newContent;
+\n\nDaily update: **${formattedDate}** \n\n`;
 
-// Write the new content back to the README file
-fs.writeFileSync(filePath, readmeContent);
+// Write the new content to the newly created file
+fs.writeFileSync(filePath, newContent);
 
 // Git commit and push commands
-execSync('git add README.md');
-execSync('git commit -m "Daily update"');
+execSync(`git add ${filePath}`);
+execSync(`git commit -m "Daily update for ${formattedDate}"`);
 execSync('git push');
