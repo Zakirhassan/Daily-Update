@@ -9,7 +9,7 @@ execSync('git config --local user.email "github-actions[bot]@users.noreply.githu
 const filePath = 'README.md';
 
 // Get the current date to append it
-const date = new Date().toLocaleDateString();
+const date = new Date();
 
 // Read the current README file
 let readmeContent = fs.readFileSync(filePath, 'utf-8');
