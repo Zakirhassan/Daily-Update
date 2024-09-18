@@ -61,7 +61,7 @@ Whatever your page’s ideal maximum width, it is likely much narrower than what
 
 Leading and Vertical Rhythm #
 
-\n\nDaily update: ${date}`;
+\n\nDaily update: **${date}** \n\n`;
 readmeContent += newContent;
 
 // Write the new content back to the README file
