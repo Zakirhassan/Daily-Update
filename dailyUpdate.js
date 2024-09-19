@@ -10,7 +10,7 @@ const date = new Date();
 const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 
 // Define the new file path with the date appended to the filename
-const filePath = `DailyUpdate_${formattedDate}.md`;
+const filePath = `DailyUpdate_${formattedDate}.txt`;
 
 // Create the content for the new file
 const newContent = `Bursting with imagery, motion, interaction and distraction though it is, today’s World Wide Web is still primarily a conduit for textual information...
