@@ -2,7 +2,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: '19 19 * * *'    
+    - cron: '0 11,14,21 * * *'  # Runs at 11 AM, 2 PM, and 9 PM UTC
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
