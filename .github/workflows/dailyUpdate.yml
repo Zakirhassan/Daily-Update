@@ -1,38 +1,32 @@
 name: Daily Update
 
-permissions:
-  contents: write  # Grants permission to push changes to the repo
-
 on:
   schedule:
-    - cron: '0 11,14,21 * * *'  # Runs daily at 11 AM
-  workflow_dispatch:  # Manual trigger
+    - cron: '0 11,14,21 * * *'  # Runs at 11 AM, 2 PM, and 9 PM UTC
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # Token to authorize actions bot
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Run daily update script
-      run: |
-        npm install
-        node dailyUpdate.js
+      - name: Install dependencies
+        run: npm install
 
-    - name: Push changes
-      run: |
-        git config --local user.name "github-actions[bot]"
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git checkout main
-        git add .
-        git commit -m "Daily update with new quote"
-        git push
+      - name: Run daily update script
+        run: node dailyUpdate.js
+
+      - name: Push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Daily update at $(date)"
+          git push
