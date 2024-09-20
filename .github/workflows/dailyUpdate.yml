@@ -22,16 +22,5 @@ jobs:
 
       - name: Run daily update script
         run: node dailyUpdate.js
-
-      - name: Configure Git identity
-        run: |
-          git config --local user.name "Zakirhassan"
-          git config --local user.email "zakirhassan114@gmail.com"
-
-      - name: Push changes
-        run: |
-          git add .
-          git commit -m "Daily update at $(date)"
-          git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
