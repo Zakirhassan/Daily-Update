@@ -2,7 +2,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: '0 11,17,22 * * *'  # Runs at 11 AM, 2 PM, and 9 PM UTC
+    - cron: '0 11,17,22 * * *'  # Runs at 11 AM, 5 PM, and 10 PM UTC
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -29,7 +29,6 @@ jobs:
           git config --local user.email "zakirhassan114@gmail.com"
           git add .
           git commit -m "Daily update at $(date)"
-          git push
-      - env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-       
+          git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
