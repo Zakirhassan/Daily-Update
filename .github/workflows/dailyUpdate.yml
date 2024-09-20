@@ -25,8 +25,11 @@ jobs:
 
       - name: Push changes
         run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "Zakirhassan"
+          git config --local user.email "zakirhassan114@gmail.com"
           git add .
           git commit -m "Daily update at $(date)"
           git push
+      - env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+       
