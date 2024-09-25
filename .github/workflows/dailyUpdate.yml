@@ -20,17 +20,15 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Push changes
-        run: |
-          git pull --rebase
-
       - name: Run daily update script
         run: node dailyUpdate.js
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
-      - name: Push changes
+      - name: Add and commit changes
         run: |
           git add .
-          git commit -m "Daily update for $(date)"
-          git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
+          git commit -m "Daily update for $(date)" || echo "Nothing to commit"
+
+      - name: Push changes
+        run: git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
