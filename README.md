@@ -1,4 +1,7 @@
 # Daily-Update
+# Overview. 
+Daily Update is an innovative application designed to automatically track and update a specific value every day. This tool is particularly useful for users needing consistent daily logs, such as tracking environmental variables, stock prices, health statistics, or any other data that changes daily. The application is built with efficiency and simplicity in mind, ensuring that users of all technical backgrounds can benefit from its functionality as well as other items.
+                     n              
 
 # Features
 Automatic Updates: Once set up, Daily Update will automatically retrieve and log the new value every 24 hours without user intervention.
