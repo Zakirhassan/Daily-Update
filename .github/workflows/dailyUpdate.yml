@@ -2,7 +2,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: '0 11 * * *'  # Runs at 11 AM, 5 PM, and 10 PM UTC
+    - cron: '45 17 * * *' # Adjust the cron job timing as per your requirements
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -20,7 +20,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Configure Git identity  # New step to configure git
+        run: |
+          git config --local user.name "Zakirhassan"
+          git config --local user.email "zakirhassan114@gmail.com"
+
       - name: Run daily update script
         run: node dailyUpdate.js
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+      - name: Push changes
+        run: |
+          git add .
+          git commit -m "Daily update for $(date)"
+          git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
