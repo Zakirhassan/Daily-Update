@@ -1,16 +1,7 @@
 # Daily-Update
 # Overview. 
 Daily Update is an innovative application designed to automatically track and update a specific value every day. This tool is particularly useful for users needing consistent daily logs, such as tracking environmental variables, stock prices, health statistics, or any other data that changes daily. The application is built with efficiency and simplicity in mind, ensuring that users of all technical backgrounds can benefit from its functionality as well as other items.
-                     n              
-
-# Features
-Automatic Updates: Once set up, Daily Update will automatically retrieve and log the new value every 24 hours without user intervention.
-Customizable Sources: Users can configure the source from which Daily Update retrieves data, making it versatile for different use cases.
-Notification System: Integrates with email or other notification systems to alert users when new data is logged or if there are any issues with data retrieval.
-Data Visualization: Provides basic visualization tools to chart the daily values over time, aiding in trend analysis and reporting.
-Secure Storage: All data is securely stored and backed up to prevent data loss.
-Getting Started
-To get started with Daily Update, follow these steps:
+           
 
 # Prerequisites
 Node.js installed on your system
