@@ -32,6 +32,4 @@ jobs:
 
       - name: Push changes
         run: |
-          git add .
-          git commit -m "Daily update for $(date)"
-          git push https://Zakirhassan:${{ secrets.PAT_TOKEN }}@github.com/Zakirhassan/Daily-Update.git
+          git push
