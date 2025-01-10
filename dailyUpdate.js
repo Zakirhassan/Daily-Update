@@ -5,24 +5,23 @@ const execSync = require('child_process').execSync;
 execSync('git config --local user.name "Zakirhassan"');
 execSync('git config --local user.email "zakirhassan114@gmail.com"');
 
-// Get the current date and format it to append to the filename
+// Get the current date and time
 const date = new Date();
 const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1)
   .toString()
-  .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}_` +
-  `${date.getHours().toString().padStart(2, '0')}-${date.getMinutes().toString().padStart(2, '0')}-${date.getSeconds().toString().padStart(2, '0')}`;
+  .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ` +
+  `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes()
+    .toString()
+    .padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
 
+// Define the file path
+const filePath = 'DailyUpdate.txt';
 
-// Define the new file path with the date appended to the filename
-const filePath = `DailyUpdate_${formattedDate}.txt`;
+// Generate random text
+const randomText = `Here's a random thought for ${formattedDate}: Stay curious and keep learning!\n`;
 
-// Create the content for the new file
-const newContent = `Bursting with imagery, motion, interaction and distraction though it is, today’s World Wide Web is still primarily a conduit for textual information...
-
-\n\nDaily update: **${formattedDate}** \n\n`;
-
-// Write the new content to the newly created file
-fs.writeFileSync(filePath, newContent);
+// Append to the file, or create it if it doesn't exist
+fs.appendFileSync(filePath, `${randomText}\n`);
 
 // Git commit and push commands
 execSync(`git add ${filePath}`);
